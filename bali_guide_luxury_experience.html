@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bali Guide | Luxury Private Journeys & Curated Experiences</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- FontAwesome Icons CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+    <!-- Tailwind Config for Custom Luxury Theme -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            DEFAULT: '#D4AF37',
+                            light: '#F3E5AB',
+                            dark: '#AA820A',
+                            glow: 'rgba(212, 175, 55, 0.25)'
+                        },
+                        emeraldDark: '#051814',
+                        emeraldSurface: '#0B2620',
+                        emeraldCard: '#11332C',
+                        sandBg: '#FAF7F2'
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        cinzel: ['Cinzel', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #051814;
+            color: #E2E8F0;
+        }
+
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #FFF0B3 0%, #D4AF37 50%, #9A7712 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gold-border-glow {
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.15);
+        }
+
+        .glass-dark {
+            background: rgba(11, 38, 32, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+        }
+
+        .glass-card {
+            background: rgba(17, 51, 44, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .glass-card:hover {
+            border-color: rgba(212, 175, 55, 0.4);
+            box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.5), 0 0 20px rgba(212, 175, 55, 0.1);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #051814;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #11332C;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #D4AF37;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-gold selection:text-emeraldDark overflow-x-hidden">
+
+    <!-- ==================== HEADER / NAVIGATION ==================== -->
+    <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="main-header">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-24">
+                
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-11 h-11 rounded-full border border-gold/40 bg-emeraldSurface flex items-center justify-center text-gold group-hover:border-gold group-hover:scale-105 transition duration-300 shadow-lg shadow-gold/5">
+                        <i class="fa-solid fa-compass text-xl"></i>
+                    </div>
+                    <div>
+                        <span class="block font-cinzel text-xl font-bold tracking-widest text-white group-hover:text-gold transition">BALI GUIDE</span>
+                        <span class="block text-[9px] tracking-[0.25em] text-gold uppercase font-medium">LUXURY PRIVATE JOURNEYS</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden lg:flex items-center space-x-10 text-xs tracking-widest uppercase font-semibold text-gray-300">
+                    <a href="#home" class="hover:text-gold transition-colors text-gold flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-gold inline-block"></span> Home</a>
+                    <a href="#tours" class="hover:text-gold transition-colors">Curated Tours</a>
+                    <a href="#experiences" class="hover:text-gold transition-colors">Bespoke Services</a>
+                    <a href="#reviews" class="hover:text-gold transition-colors">Guest Stories</a>
+                    <a href="#about" class="hover:text-gold transition-colors">Our Philosophy</a>
+                </nav>
+
+                <!-- Header Actions -->
+                <div class="hidden sm:flex items-center space-x-5">
+                    <a href="https://wa.me/?text=Hello%20Bali%20Guide,%20I%20would%20like%20to%20inquire%20about%20a%20luxury%20private%20tour." target="_blank" class="inline-flex items-center gap-2 bg-gradient-to-r from-gold-dark via-gold to-gold-light text-emeraldDark font-bold text-xs uppercase tracking-wider px-6 py-3 rounded-full hover:shadow-lg hover:shadow-gold/20 hover:scale-105 transition duration-300">
+                        <i class="fa-brands fa-whatsapp text-sm"></i>
+                        <span>Private Inquiry</span>
+                    </a>
+                </div>
+
+                <!-- Mobile Navigation Toggle Button -->
+                <div class="lg:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-white hover:text-gold focus:outline-none p-2" aria-label="Toggle Menu">
+                        <i class="fa-solid fa-bars-staggered text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden glass-dark border-b border-gold/20 px-6 pt-4 pb-8 space-y-4">
+            <a href="#home" class="block text-gold font-semibold tracking-wider uppercase text-sm">Home</a>
+            <a href="#tours" class="block text-gray-200 hover:text-gold tracking-wider uppercase text-sm">Curated Tours</a>
+            <a href="#experiences" class="block text-gray-200 hover:text-gold tracking-wider uppercase text-sm">Bespoke Services</a>
+            <a href="#reviews" class="block text-gray-200 hover:text-gold tracking-wider uppercase text-sm">Guest Stories</a>
+            <a href="#about" class="block text-gray-200 hover:text-gold tracking-wider uppercase text-sm">Our Philosophy</a>
+            <div class="pt-4 border-t border-white/10">
+                <a href="https://wa.me/?text=Hello%20Bali%20Guide,%20I%20would%20like%20to%20inquire%20about%20a%20luxury%20private%20tour." target="_blank" class="w-full inline-flex items-center justify-center gap-2 bg-gold text-emeraldDark font-bold text-xs uppercase tracking-wider py-3 rounded-full">
+                    <i class="fa-brands fa-whatsapp text-base"></i>
+                    <span>WhatsApp VIP Line</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==================== HERO SECTION ==================== -->
+    <section id="home" class="relative min-h-screen flex items-center pt-28 pb-32 overflow-hidden">
+        <!-- Background Hero Image with Deep Gradient Vignette Overlay -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=2000&q=80" alt="Luxury Bali Villa Pool View" class="w-full h-full object-cover opacity-35 scale-105 animate-pulse" style="animation-duration: 12s;">
+            <div class="absolute inset-0 bg-gradient-to-t from-emeraldDark via-emeraldDark/80 to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-emeraldDark via-transparent to-emeraldDark"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
+            <div class="max-w-3xl">
+                <!-- Tagline Badge -->
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-card border border-gold/30 text-gold text-xs uppercase tracking-[0.2em] font-semibold mb-6">
+                    <i class="fa-solid fa-crown text-xs"></i>
+                    <span>Exclusive Private Itineraries</span>
+                </div>
+
+                <h1 class="font-serif text-4xl sm:text-6xl lg:text-7xl text-white font-bold leading-tight mb-6">
+                    Experience Bali in <br>
+                    <span class="gold-gradient-text italic font-normal">Unrivaled Luxury</span>
+                </h1>
+
+                <p class="text-gray-300 text-sm sm:text-lg mb-10 leading-relaxed font-light max-w-2xl">
+                    Immerse yourself in hand-crafted private journeys across Bali’s sacred temples, secluded beaches, and majestic highlands with personal chauffeurs and expert local curators.
+                </p>
+
+                <!-- Hero Key Stats -->
+                <div class="grid grid-cols-3 gap-6 max-w-lg mb-10 border-t border-b border-white/10 py-4">
+                    <div>
+                        <span class="block font-cinzel text-xl sm:text-2xl text-gold font-bold">100%</span>
+                        <span class="text-[10px] text-gray-400 uppercase tracking-wider">Private & Tailored</span>
+                    </div>
+                    <div>
+                        <span class="block font-cinzel text-xl sm:text-2xl text-gold font-bold">4.9/5</span>
+                        <span class="text-[10px] text-gray-400 uppercase tracking-wider">VIP Guest Rating</span>
+                    </div>
+                    <div>
+                        <span class="block font-cinzel text-xl sm:text-2xl text-gold font-bold">24/7</span>
+                        <span class="text-[10px] text-gray-400 uppercase tracking-wider">Personal Concierge</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Interactive Floating Search / Reservation Bar -->
+        <div class="absolute left-1/2 bottom-6 transform -translate-x-1/2 w-full max-w-6xl px-4 z-20">
+            <div class="glass-dark rounded-3xl p-4 sm:p-6 gold-border-glow shadow-2xl">
+                <form id="hero-search-form" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 items-center">
+                    
+                    <!-- Destination -->
+                    <div class="space-y-1 border-b sm:border-b-0 sm:border-r border-white/10 pb-2 sm:pb-0 sm:pr-4">
+                        <label class="block text-[10px] uppercase tracking-widest text-gold font-semibold">Destination Region</label>
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-location-dot text-gold text-xs"></i>
+                            <select id="search-region" class="w-full bg-transparent text-xs sm:text-sm font-medium text-white focus:outline-none cursor-pointer">
+                                <option value="all" class="bg-emeraldDark">All Bali Regions</option>
+                                <option value="ubud" class="bg-emeraldDark">Ubud & Highlands</option>
+                                <option value="uluwatu" class="bg-emeraldDark">Uluwatu & South Coast</option>
+                                <option value="nusa" class="bg-emeraldDark">Nusa Penida & Islands</option>
+                                <option value="north" class="bg-emeraldDark">North Bali Waterfalls</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Category -->
+                    <div class="space-y-1 border-b sm:border-b-0 sm:border-r border-white/10 pb-2 sm:pb-0 sm:pr-4">
+                        <label class="block text-[10px] uppercase tracking-widest text-gold font-semibold">Travel Style</label>
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-gem text-gold text-xs"></i>
+                            <select id="search-category" class="w-full bg-transparent text-xs sm:text-sm font-medium text-white focus:outline-none cursor-pointer">
+                                <option value="all" class="bg-emeraldDark">All Experiences</option>
+                                <option value="cultural" class="bg-emeraldDark">Culture & Temples</option>
+                                <option value="wellness" class="bg-emeraldDark">Wellness & Nature</option>
+                                <option value="island" class="bg-emeraldDark">Yacht & Island Escape</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Date -->
+                    <div class="space-y-1 border-b sm:border-b-0 sm:border-r border-white/10 pb-2 sm:pb-0 sm:pr-4">
+                        <label class="block text-[10px] uppercase tracking-widest text-gold font-semibold">Preferred Date</label>
+                        <div class="flex items-center gap-2">
+                            <i class="fa-regular fa-calendar-check text-gold text-xs"></i>
+                            <input type="date" class="w-full bg-transparent text-xs sm:text-sm font-medium text-white focus:outline-none cursor-pointer">
+                        </div>
+                    </div>
+
+                    <!-- Guests -->
+                    <div class="space-y-1 border-b sm:border-b-0 lg:border-r border-white/10 pb-2 sm:pb-0 sm:pr-4">
+                        <label class="block text-[10px] uppercase tracking-widest text-gold font-semibold">Party Size</label>
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-user-group text-gold text-xs"></i>
+                            <select class="w-full bg-transparent text-xs sm:text-sm font-medium text-white focus:outline-none cursor-pointer">
+                                <option value="1-2" class="bg-emeraldDark">1 - 2 Guests (Couple)</option>
+                                <option value="3-5" class="bg-emeraldDark">3 - 5 Guests (Family)</option>
+                                <option value="6+" class="bg-emeraldDark">6+ VIP Private Group</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Submit Search CTA -->
+                    <button type="submit" class="w-full h-full bg-gradient-to-r from-gold via-gold-light to-gold text-emeraldDark font-bold text-xs uppercase tracking-widest py-3.5 px-6 rounded-2xl hover:opacity-90 transition duration-300 flex items-center justify-center gap-2 shadow-lg shadow-gold/20">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <span>Search Tours</span>
+                    </button>
+
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CURATED TOURS SECTION ==================== -->
+    <section id="tours" class="py-24 relative bg-emeraldDark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Section Header -->
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                <div>
+                    <span class="text-xs uppercase tracking-[0.3em] text-gold font-bold">Curated Signature Collections</span>
+                    <h2 class="font-serif text-3xl sm:text-5xl text-white font-bold mt-2">
+                        Bespoke Private Itineraries
+                    </h2>
+                </div>
+
+                <!-- Category Filter Tabs -->
+                <div class="mt-6 md:mt-0 flex flex-wrap gap-2 text-xs uppercase tracking-wider font-semibold">
+                    <button class="filter-btn active bg-gold text-emeraldDark px-4 py-2 rounded-full transition" data-filter="all">All Journeys</button>
+                    <button class="filter-btn glass-card text-gray-300 hover:text-gold px-4 py-2 rounded-full transition" data-filter="cultural">Cultural</button>
+                    <button class="filter-btn glass-card text-gray-300 hover:text-gold px-4 py-2 rounded-full transition" data-filter="wellness">Nature & Water</button>
+                    <button class="filter-btn glass-card text-gray-300 hover:text-gold px-4 py-2 rounded-full transition" data-filter="island">Island Escape</button>
+                </div>
+            </div>
+
+            <!-- Tours Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="tours-container">
+                
+                <!-- Tour Item 1 -->
+                <div class="tour-card glass-card rounded-3xl overflow-hidden transition-all duration-500 group" data-category="cultural">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?auto=format&fit=crop&w=800&q=80" alt="Ubud Royal Culture & Tanah Lot" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute top-4 left-4 bg-emeraldDark/80 backdrop-blur-md border border-gold/30 text-gold text-[10px] uppercase font-bold tracking-widest px-3 py-1 rounded-full">
+                            VIP Private
+                        </div>
+                        <div class="absolute top-4 right-4 bg-black/60 backdrop-blur-md text-amber-300 text-xs px-2.5 py-1 rounded-full flex items-center gap-1">
+                            <i class="fa-solid fa-star"></i> 4.95
+                        </div>
+                    </div>
+
+                    <div class="p-6 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between text-xs text-gray-400 mb-2">
+                                <span><i class="fa-regular fa-clock text-gold mr-1"></i> 10 Hours</span>
+                                <span><i class="fa-solid fa-location-dot text-gold mr-1"></i> Ubud & Tanah Lot</span>
+                            </div>
+                            <h3 class="font-serif text-xl font-bold text-white group-hover:text-gold transition-colors mb-3">
+                                Ubud Heritage & Sunset Temple Sanctuary
+                            </h3>
+                            <p class="text-xs text-gray-400 leading-relaxed line-clamp-2">
+                                Private luxury transport through ancient rice terraces, sacred monkey forest, traditional batik artisan homes, concluding at sea temple Tanah Lot.
+                            </p>
+                        </div>
+
+                        <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between">
+                            <div>
+                                <span class="block text-[10px] text-gray-400 uppercase tracking-widest">Starting From</span>
+                                <span class="font-cinzel text-lg font-bold text-gold">IDR 850,000</span>
+                            </div>
+                            <button onclick="openBookingModal('Ubud Heritage & Sunset Temple Sanctuary')" class="w-10 h-10 rounded-full border border-gold/40 text-gold flex items-center justify-center group-hover:bg-gold group-hover:text-emeraldDark transition-all duration-300">
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tour Item 2 -->
+                <div class="tour-card glass-card rounded-3xl overflow-hidden transition-all duration-500 group" data-category="cultural">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1537956965359-7573183d1f57?auto=format&fit=crop&w=800&q=80" alt="Uluwatu Cliffside Sunset & Fire Dance" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute top-4 left-4 bg-emeraldDark/80 backdrop-blur-md border border-gold/30 text-gold text-[10px] uppercase font-bold tracking-widest px-3 py-1 rounded-full">
+                            Sunset Special
+                        </div>
+                        <div class="absolute top-4 right-4 bg-black/60 backdrop-blur-md text-amber-300 text-xs px-2.5 py-1 rounded-full flex items-center gap-1">
+                            <i class="fa-solid fa-star"></i> 5.0
+                        </div>
+                    </div>
+
+                    <div class="p-6 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between text-xs text-gray-400 mb-2">
+                                <span><i class="fa-regular fa-clock text-gold mr-1"></i> 7 Hours</span>
+                                <span><i class="fa-solid fa-location-dot text-gold mr-1"></i> Uluwatu Cliff</span>
+                            </div>
+                            <h3 class="font-serif text-xl font-bold text-white group-hover:text-gold transition-colors mb-3">
+                                Uluwatu Sunset Cliff & VIP Kecak Fire Dance
+                            </h3>
+                            <p class="text-xs text-gray-400 leading-relaxed line-clamp-2">
+                                Exclusive cliffside panorama, reserved VIP seating for the world-renowned Kecak Dance, followed by a romantic seafood dinner in Jimbaran Bay.
+                            </p>
+                        </div>
+
+                        <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between">
+                            <div>
+                                <span class="block text-[10px] text-gray-400 uppercase tracking-widest">Starting From</span>
+                                <span class="font-cinzel text-lg font-bold text-gold">IDR 750,000</span>
+                            </div>
+                            <button onclick="openBookingModal('Uluwatu Sunset Cliff & VIP Kecak Fire Dance')" class="w-10 h-10 rounded-full border border-gold/40 text-gold flex items-center justify-center group-hover:bg-gold group-hover:text-emeraldDark transition-all duration-300">
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tour Item 3 -->
+                <div class="tour-card glass-card rounded-3xl overflow-hidden transition-all duration-500 group" data-category="wellness">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1583253960686-ea26b5940ed8?auto=format&fit=crop&w=800&q=80" alt="Tegallalang & Holy Water Cleansing" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute top-4 left-4 bg-emeraldDark/80 backdrop-blur-md border border-gold/30 text-gold text-[10px] uppercase font-bold tracking-widest px-3 py-1 rounded-full">
+                            Spiritual Journey
+                        </div>
+                        <div class="absolute top-4 right-4 bg-black/60 backdrop-blur-md text-amber-300 text-xs px-2.5 py-1 rounded-full flex items-center gap-1">
+                            <i class="fa-solid fa-star"></i> 4.98
+                        </div>
+                    </div>
+
+                    <div class="p-6 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between text-xs text-gray-400 mb-2">
+                                <span><i class="fa-regular fa-clock text-gold mr-1"></i> 8 Hours</span>
+                                <span><i class="fa-solid fa-location-dot text-gold mr-1"></i> Tirta Empul & Ubud</span>
+                            </div>
+                            <h3 class="font-serif text-xl font-bold text-white group-hover:text-gold transition-colors mb-3">
+                                Melukat Holy Purification & Valley Oasis
+                            </h3>
+                            <p class="text-xs text-gray-400 leading-relaxed line-clamp-2">
+                                Authentic spiritual cleansing blessing ritual led by a local priest at Tirta Empul, combined with private lunch overlooking Tegallalang Valley.
+                            </p>
+                        </div>
+
+                        <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between">
+                            <div>
+                                <span class="block text-[10px] text-gray-400 uppercase tracking-widest">Starting From</span>
+                                <span class="font-cinzel text-lg font-bold text-gold">IDR 800,000</span>
+                            </div>
+                            <button onclick="openBookingModal('Melukat Holy Purification & Valley Oasis')" class="w-10 h-10 rounded-full border border-gold/40 text-gold flex items-center justify-center group-hover:bg-gold group-hover:text-emeraldDark transition-all duration-300">
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tour Item 4 -->
+                <div class="tour-card glass-card rounded-3xl overflow-hidden transition-all duration-500 group" data-category="island">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&w=800&q=80" alt="Nusa Penida Luxury Yacht & Coastal Tour" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute top-4 left-4 bg-emeraldDark/80 backdrop-blur-md border border-gold/30 text-gold text-[10px] uppercase font-bold tracking-widest px-3 py-1 rounded-full">
+                            Islands & Snorkel
+                        </div>
+                        <div class="absolute top-4 right-4 bg-black/60 backdrop-blur-md text-amber-300 text-xs px-2.5 py-1 rounded-full flex items-center gap-1">
+                            <i class="fa-solid fa-star"></i> 4.96
+                        </div>
+                    </div>
+
+                    <div class="p-6 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between text-xs text-gray-400 mb-2">
+                                <span><i class="fa-regular fa-clock text-gold mr-1"></i> Full Day</span>
+                                <span><i class="fa-solid fa-location-dot text-gold mr-1"></i> Nusa Penida Island</span>
+                            </div>
+                            <h3 class="font-serif text-xl font-bold text-white group-hover:text-gold transition-colors mb-3">
+                                Nusa Penida Private Speedboat & Kelingking Escape
+                            </h3>
+                            <p class="text-xs text-gray-400 leading-relaxed line-clamp-2">
+                                Fast boat transfer, private driver on Nusa Penida, visiting Kelingking T-Rex Beach, Broken Beach, Crystal Bay, and private Manta Ray snorkeling.
+                            </p>
+                        </div>
+
+                        <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between">
+                            <div>
+                                <span class="block text-[10px] text-gray-400 uppercase tracking-widest">Starting From</span>
+                                <span class="font-cinzel text-lg font-bold text-gold">IDR 1,200,000</span>
+                            </div>
+                            <button onclick="openBookingModal('Nusa Penida Private Speedboat & Kelingking Escape')" class="w-10 h-10 rounded-full border border-gold/40 text-gold flex items-center justify-center group-hover:bg-gold group-hover:text-emeraldDark transition-all duration-300">
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tour Item 5 -->
+                <div class="tour-card glass-card rounded-3xl overflow-hidden transition-all duration-500 group" data-category="wellness">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?auto=format&fit=crop&w=800&q=80" alt="Northern Bali Waterfalls & Lakes" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute top-4 left-4 bg-emeraldDark/80 backdrop-blur-md border border-gold/30 text-gold text-[10px] uppercase font-bold tracking-widest px-3 py-1 rounded-full">
+                            Nature Expedition
+                        </div>
+                        <div class="absolute top-4 right-4 bg-black/60 backdrop-blur-md text-amber-300 text-xs px-2.5 py-1 rounded-full flex items-center gap-1">
+                            <i class="fa-solid fa-star"></i> 4.92
+                        </div>
+                    </div>
+
+                    <div class="p-6 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between text-xs text-gray-400 mb-2">
+                                <span><i class="fa-regular fa-clock text-gold mr-1"></i> 10 Hours</span>
+                                <span><i class="fa-solid fa-location-dot text-gold mr-1"></i> Bedugul & Munduk</span>
+                            </div>
+                            <h3 class="font-serif text-xl font-bold text-white group-hover:text-gold transition-colors mb-3">
+                                Hidden Northern Waterfalls & Floating Temple
+                            </h3>
+                            <p class="text-xs text-gray-400 leading-relaxed line-clamp-2">
+                                Explore mist-covered Lake Beratan, Handara Royal Gate, and trek down to pristine Sekumpul or Leke Leke Waterfalls with personal guide.
+                            </p>
+                        </div>
+
+                        <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between">
+                            <div>
+                                <span class="block text-[10px] text-gray-400 uppercase tracking-widest">Starting From</span>
+                                <span class="font-cinzel text-lg font-bold text-gold">IDR 900,000</span>
+                            </div>
+                            <button onclick="openBookingModal('Hidden Northern Waterfalls & Floating Temple')" class="w-10 h-10 rounded-full border border-gold/40 text-gold flex items-center justify-center group-hover:bg-gold group-hover:text-emeraldDark transition-all duration-300">
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tour Item 6 -->
+                <div class="tour-card glass-card rounded-3xl overflow-hidden transition-all duration-500 group" data-category="island">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80" alt="Private Catamaran Cruise" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute top-4 left-4 bg-emeraldDark/80 backdrop-blur-md border border-gold/30 text-gold text-[10px] uppercase font-bold tracking-widest px-3 py-1 rounded-full">
+                            Ultra Luxury
+                        </div>
+                        <div class="absolute top-4 right-4 bg-black/60 backdrop-blur-md text-amber-300 text-xs px-2.5 py-1 rounded-full flex items-center gap-1">
+                            <i class="fa-solid fa-star"></i> 5.0
+                        </div>
+                    </div>
+
+                    <div class="p-6 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between text-xs text-gray-400 mb-2">
+                                <span><i class="fa-regular fa-clock text-gold mr-1"></i> Full Day</span>
+                                <span><i class="fa-solid fa-location-dot text-gold mr-1"></i> Lembongan & Ceningan</span>
+                            </div>
+                            <h3 class="font-serif text-xl font-bold text-white group-hover:text-gold transition-colors mb-3">
+                                Private Luxury Yacht Cruise & Coral Reef Haven
+                            </h3>
+                            <p class="text-xs text-gray-400 leading-relaxed line-clamp-2">
+                                Private luxury charter catamaran sailing towards Nusa Lembongan with gourmet onboard dining, water sports, and sunset champagne toast.
+                            </p>
+                        </div>
+
+                        <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between">
+                            <div>
+                                <span class="block text-[10px] text-gray-400 uppercase tracking-widest">Starting From</span>
+                                <span class="font-cinzel text-lg font-bold text-gold">IDR 3,500,000</span>
+                            </div>
+                            <button onclick="openBookingModal('Private Luxury Yacht Cruise & Coral Reef Haven')" class="w-10 h-10 rounded-full border border-gold/40 text-gold flex items-center justify-center group-hover:bg-gold group-hover:text-emeraldDark transition-all duration-300">
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== BESPOKE SERVICES / WHY CHOOSE US ==================== -->
+    <section id="experiences" class="py-24 relative bg-emeraldSurface border-t border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                
+                <!-- Left Narrative -->
+                <div>
+                    <span class="text-xs uppercase tracking-[0.3em] text-gold font-bold">Unmatched Excellence</span>
+                    <h2 class="font-serif text-3xl sm:text-5xl text-white font-bold mt-2 leading-tight">
+                        Crafted For Discerning Travelers
+                    </h2>
+                    <p class="text-gray-300 text-sm sm:text-base mt-6 leading-relaxed font-light">
+                        We reject one-size-fits-all mass tourism. Every journey with Bali Guide is engineered around your pace, preferences, and desires, unlocking closed-door temple rituals, secret beaches, and luxury private transport.
+                    </p>
+
+                    <!-- Feature Grid -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-10">
+                        
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-2xl bg-emeraldDark border border-gold/30 flex items-center justify-center text-gold text-lg flex-shrink-0">
+                                <i class="fa-solid fa-car-side"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-serif text-base text-white font-bold">Luxury Fleet</h4>
+                                <p class="text-xs text-gray-400 mt-1">Air-conditioned Alphard, SUV, or luxury sprinters with complimentary Wi-Fi and refreshments.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-2xl bg-emeraldDark border border-gold/30 flex items-center justify-center text-gold text-lg flex-shrink-0">
+                                <i class="fa-solid fa-user-ninja"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-serif text-base text-white font-bold">Native Storytellers</h4>
+                                <p class="text-xs text-gray-400 mt-1">Fluent English-speaking native guides deeply connected to Balinese culture and history.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-2xl bg-emeraldDark border border-gold/30 flex items-center justify-center text-gold text-lg flex-shrink-0">
+                                <i class="fa-solid fa-sliders"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-serif text-base text-white font-bold">Flexibility First</h4>
+                                <p class="text-xs text-gray-400 mt-1">Adjust start times, itinerary stops, and dining reservations on the go with zero stress.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-2xl bg-emeraldDark border border-gold/30 flex items-center justify-center text-gold text-lg flex-shrink-0">
+                                <i class="fa-solid fa-shield-cat"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-serif text-base text-white font-bold">Complete Privacy</h4>
+                                <p class="text-xs text-gray-400 mt-1">100% private tours for couples, families, and high-profile guests requiring discretion.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Right Visual Collage -->
+                <div class="relative">
+                    <div class="relative rounded-3xl overflow-hidden gold-border-glow shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?auto=format&fit=crop&w=1000&q=80" alt="Private Guide in Bali Temple" class="w-full h-[480px] object-cover">
+                    </div>
+
+                    <!-- Floating Glass Card Accent -->
+                    <div class="absolute -bottom-8 -left-8 max-w-xs glass-dark p-6 rounded-2xl hidden sm:block border border-gold/30 shadow-2xl">
+                        <div class="flex items-center gap-3 mb-2">
+                            <div class="w-3 h-3 rounded-full bg-emerald-400 animate-ping"></div>
+                            <span class="text-xs text-gold uppercase tracking-widest font-bold">Concierge Live</span>
+                        </div>
+                        <p class="text-xs text-gray-200 italic">"Our driver Wayan felt like family. He took us to places no other tourists knew about."</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== GUEST STORIES / TESTIMONIALS ==================== -->
+    <section id="reviews" class="py-24 bg-emeraldDark relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-xs uppercase tracking-[0.3em] text-gold font-bold">Unforgettable Memories</span>
+                <h2 class="font-serif text-3xl sm:text-5xl text-white font-bold mt-2">
+                    Stories From Our Guests
+                </h2>
+                <p class="text-gray-400 text-xs sm:text-sm mt-3">
+                    Discover why international luxury travelers trust Bali Guide for their private island explorations.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Review 1 -->
+                <div class="glass-card p-8 rounded-3xl relative flex flex-col justify-between">
+                    <div class="text-gold text-2xl mb-4">
+                        <i class="fa-solid fa-quote-left"></i>
+                    </div>
+                    <p class="text-gray-300 text-xs sm:text-sm leading-relaxed mb-6 font-light">
+                        "The private yacht charter to Nusa Penida surpassed all expectations. Our guide ensured we had Manta Point completely to ourselves before the crowd arrived. Pure perfection!"
+                    </p>
+                    <div class="flex items-center gap-4 pt-4 border-t border-white/10">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" alt="Elena Rostova" class="w-12 h-12 rounded-full object-cover border border-gold/40">
+                        <div>
+                            <h4 class="font-serif text-sm font-bold text-white">Elena Rostova</h4>
+                            <span class="text-[10px] text-gray-400 uppercase tracking-widest">Switzerland</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="glass-card p-8 rounded-3xl relative flex flex-col justify-between">
+                    <div class="text-gold text-2xl mb-4">
+                        <i class="fa-solid fa-quote-left"></i>
+                    </div>
+                    <p class="text-gray-300 text-xs sm:text-sm leading-relaxed mb-6 font-light">
+                        "As a family with two young children, having a comfortable Alphard and a flexible driver was invaluable. Wayan made sure every temple stop had easy access for us."
+                    </p>
+                    <div class="flex items-center gap-4 pt-4 border-t border-white/10">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" alt="Marcus Vance" class="w-12 h-12 rounded-full object-cover border border-gold/40">
+                        <div>
+                            <h4 class="font-serif text-sm font-bold text-white">Marcus Vance</h4>
+                            <span class="text-[10px] text-gray-400 uppercase tracking-widest">Australia</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="glass-card p-8 rounded-3xl relative flex flex-col justify-between">
+                    <div class="text-gold text-2xl mb-4">
+                        <i class="fa-solid fa-quote-left"></i>
+                    </div>
+                    <p class="text-gray-300 text-xs sm:text-sm leading-relaxed mb-6 font-light">
+                        "The Melukat cleansing blessing at Tirta Empul was a soul-stirring experience. Bali Guide handled the offerings, priest arrangements, and traditional sarongs seamlessly."
+                    </p>
+                    <div class="flex items-center gap-4 pt-4 border-t border-white/10">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&q=80" alt="Sophia Chen" class="w-12 h-12 rounded-full object-cover border border-gold/40">
+                        <div>
+                            <h4 class="font-serif text-sm font-bold text-white">Sophia Chen</h4>
+                            <span class="text-[10px] text-gray-400 uppercase tracking-widest">Singapore</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CALL TO ACTION BANNER ==================== -->
+    <section class="py-24 relative overflow-hidden bg-cover bg-center" style="background-image: linear-gradient(to right, rgba(5,24,20,0.95), rgba(5,24,20,0.85)), url('https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?auto=format&fit=crop&w=2000&q=80');">
+        <div class="max-w-5xl mx-auto px-4 text-center relative z-10">
+            <span class="text-xs uppercase tracking-[0.3em] text-gold font-bold">Start Planning Today</span>
+            <h2 class="font-serif text-3xl sm:text-6xl text-white font-bold mt-2 mb-6 leading-tight">
+                Your Bespoke Bali Odyssey Awaits
+            </h2>
+            <p class="text-gray-300 text-sm sm:text-base max-w-2xl mx-auto mb-10 font-light">
+                Connect with our head travel curator on WhatsApp for instant custom itinerary planning, villa transfers, and private luxury reservations.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="https://wa.me/?text=Hello%20Bali%20Guide,%20I%20want%20to%20plan%20a%20custom%20luxury%20itinerary!" target="_blank" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-gradient-to-r from-gold-dark via-gold to-gold-light text-emeraldDark font-bold text-xs uppercase tracking-widest px-8 py-4 rounded-full shadow-lg shadow-gold/20 hover:scale-105 transition duration-300">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    <span>Connect On WhatsApp</span>
+                </a>
+                <button onclick="openBookingModal('General Bespoke Inquiry')" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 glass-card hover:bg-gold/10 text-white font-semibold text-xs uppercase tracking-widest px-8 py-4 rounded-full border border-gold/30 transition duration-300">
+                    <i class="fa-regular fa-paper-plane text-gold"></i>
+                    <span>Request Custom Quote</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer id="about" class="bg-emeraldDark border-t border-white/10 pt-16 pb-12 text-gray-400 text-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-white/10">
+                
+                <!-- Col 1: Brand Info -->
+                <div class="space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-9 h-9 rounded-full border border-gold/40 bg-emeraldSurface flex items-center justify-center text-gold">
+                            <i class="fa-solid fa-compass text-base"></i>
+                        </div>
+                        <span class="font-cinzel text-lg font-bold text-white tracking-widest">BALI GUIDE</span>
+                    </div>
+                    <p class="text-xs text-gray-400 leading-relaxed font-light">
+                        Bali’s premier luxury travel operator specializing in private chauffeured tours, yacht charters, and cultural immersion experiences.
+                    </p>
+                </div>
+
+                <!-- Col 2: Quick Links -->
+                <div>
+                    <h4 class="font-serif text-sm font-bold text-white uppercase tracking-wider mb-4">Journeys</h4>
+                    <ul class="space-y-2.5">
+                        <li><a href="#tours" class="hover:text-gold transition">Ubud & Culture</a></li>
+                        <li><a href="#tours" class="hover:text-gold transition">Uluwatu Sunset</a></li>
+                        <li><a href="#tours" class="hover:text-gold transition">Nusa Penida Yacht</a></li>
+                        <li><a href="#tours" class="hover:text-gold transition">Holy Water Rituals</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Services -->
+                <div>
+                    <h4 class="font-serif text-sm font-bold text-white uppercase tracking-wider mb-4">Concierge</h4>
+                    <ul class="space-y-2.5">
+                        <li><a href="#" class="hover:text-gold transition">Airport VIP Fast Track</a></li>
+                        <li><a href="#" class="hover:text-gold transition">Luxury Chauffeur Fleet</a></li>
+                        <li><a href="#" class="hover:text-gold transition">Villa & Helicopter Charters</a></li>
+                        <li><a href="#" class="hover:text-gold transition">Private Photographer</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Contact -->
+                <div>
+                    <h4 class="font-serif text-sm font-bold text-white uppercase tracking-wider mb-4">Headquarters</h4>
+                    <p class="text-xs text-gray-400 mb-2"><i class="fa-solid fa-location-dot text-gold mr-2"></i> Jalan Raya Seminyak No. 88, Kuta, Bali</p>
+                    <p class="text-xs text-gray-400 mb-2"><i class="fa-solid fa-envelope text-gold mr-2"></i> vip@baliguide-luxury.com</p>
+                    <p class="text-xs text-gray-400 mb-4"><i class="fa-solid fa-phone text-gold mr-2"></i> +62 812 3456 7890</p>
+                    <div class="flex items-center gap-3 text-sm">
+                        <a href="#" class="w-8 h-8 rounded-full glass-card flex items-center justify-center text-gold hover:bg-gold hover:text-emeraldDark transition"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-full glass-card flex items-center justify-center text-gold hover:bg-gold hover:text-emeraldDark transition"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-full glass-card flex items-center justify-center text-gold hover:bg-gold hover:text-emeraldDark transition"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Bottom Copyright -->
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-gray-500 text-[11px]">
+                <p>&copy; 2026 Bali Guide Luxury Travel Ltd. All rights reserved.</p>
+                <div class="flex gap-6 mt-4 sm:mt-0">
+                    <a href="#" class="hover:text-gold transition">Privacy Policy</a>
+                    <a href="#" class="hover:text-gold transition">Terms of Service</a>
+                    <a href="#" class="hover:text-gold transition">VIP Concierge Login</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== BOOKING / INQUIRY MODAL ==================== -->
+    <div id="booking-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center bg-black/80 backdrop-blur-md p-4">
+        <div class="glass-dark border border-gold/40 rounded-3xl max-w-lg w-full p-6 sm:p-8 relative gold-border-glow">
+            <!-- Close Button -->
+            <button onclick="closeBookingModal()" class="absolute top-5 right-5 text-gray-400 hover:text-gold text-lg">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <span class="text-[10px] uppercase tracking-widest text-gold font-bold">Bespoke Reservation</span>
+            <h3 class="font-serif text-2xl text-white font-bold mb-2" id="modal-tour-title">Book Experience</h3>
+            <p class="text-xs text-gray-300 mb-6 font-light">Fill out your details below and our personal tour curator will contact you via WhatsApp immediately.</p>
+
+            <form id="modal-form" class="space-y-4 text-xs">
+                <div>
+                    <label class="block uppercase text-gold font-semibold mb-1">Your Name</label>
+                    <input type="text" required placeholder="e.g. Lord Alexander / Jane Doe" class="w-full bg-emeraldDark border border-white/10 rounded-xl p-3 text-white focus:outline-none focus:border-gold">
+                </div>
+                <div>
+                    <label class="block uppercase text-gold font-semibold mb-1">WhatsApp Phone Number</label>
+                    <input type="tel" required placeholder="+123456789" class="w-full bg-emeraldDark border border-white/10 rounded-xl p-3 text-white focus:outline-none focus:border-gold">
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block uppercase text-gold font-semibold mb-1">Preferred Date</label>
+                        <input type="date" required class="w-full bg-emeraldDark border border-white/10 rounded-xl p-3 text-white focus:outline-none focus:border-gold">
+                    </div>
+                    <div>
+                        <label class="block uppercase text-gold font-semibold mb-1">Guest Count</label>
+                        <select class="w-full bg-emeraldDark border border-white/10 rounded-xl p-3 text-white focus:outline-none focus:border-gold">
+                            <option>1-2 Guests</option>
+                            <option>3-5 Guests</option>
+                            <option>6+ VIP Group</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <label class="block uppercase text-gold font-semibold mb-1">Special Requests</label>
+                    <textarea rows="2" placeholder="Helicopter transfer, dietary needs, hotel pickup location..." class="w-full bg-emeraldDark border border-white/10 rounded-xl p-3 text-white focus:outline-none focus:border-gold"></textarea>
+                </div>
+                <button type="submit" class="w-full bg-gradient-to-r from-gold via-gold-light to-gold text-emeraldDark font-bold uppercase tracking-widest py-3.5 rounded-xl hover:opacity-90 transition mt-2">
+                    Send VIP Inquiry
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- JavaScript Interactions -->
+    <script>
+        // Header background change on scroll
+        const header = document.getElementById('main-header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('glass-dark', 'shadow-2xl');
+            } else {
+                header.classList.remove('glass-dark', 'shadow-2xl');
+            }
+        });
+
+        // Mobile Menu Toggle
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Tour Category Filtering
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const tourCards = document.querySelectorAll('.tour-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all
+                filterBtns.forEach(b => {
+                    b.classList.remove('bg-gold', 'text-emeraldDark', 'active');
+                    b.classList.add('glass-card', 'text-gray-300');
+                });
+
+                // Add active to clicked
+                btn.classList.add('bg-gold', 'text-emeraldDark', 'active');
+                btn.classList.remove('glass-card', 'text-gray-300');
+
+                const filter = btn.getAttribute('data-filter');
+
+                tourCards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Booking Modal Handlers
+        const bookingModal = document.getElementById('booking-modal');
+        const modalTitle = document.getElementById('modal-tour-title');
+
+        function openBookingModal(tourTitle) {
+            modalTitle.innerText = tourTitle;
+            bookingModal.classList.remove('hidden');
+        }
+
+        function closeBookingModal() {
+            bookingModal.classList.add('hidden');
+        }
+
+        document.getElementById('modal-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const tour = modalTitle.innerText;
+            window.open(`https://wa.me/?text=Hello%20Bali%20Guide,%20I%20would%20like%20to%20book:%20${encodeURIComponent(tour)}`, '_blank');
+            closeBookingModal();
+        });
+
+        // Hero Search form handler
+        document.getElementById('hero-search-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const region = document.getElementById('search-region').value;
+            const category = document.getElementById('search-category').value;
+            window.open(`https://wa.me/?text=Hello%20Bali%20Guide,%20I%20am%20looking%20for%20tours%20in%20region:%20${region}%20with%20category:%20${category}`, '_blank');
+        });
+    </script>
+</body>
+</html>
